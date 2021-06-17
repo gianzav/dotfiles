@@ -1,8 +1,8 @@
 !font 
-! *.font: xft:Iosevka:style=Regular:size=14:antialias=true, xft:Noto Color Emoji:stle=Regular
-! *.boldFont: xft:Iosevka:style=Bold:size=14:antialias=true
-! *.italicFont: xft:Iosevka:style=Italic:size=14:antialias=true
-! *.boldItalicFont: xft:Iosevka:style=Bold Italic:size=14:antialias=true
+*.font: xft:Code New Roman:style=Regular:size=16:antialias=true, xft:Noto Color Emoji:stle=Regular
+*.boldFont: xft:Code New Roman:style=Bold:size=16:antialias=true
+*.italicFont: xft:Code New Roman:style=Italic:size=16:antialias=true
+*.boldItalicFont: xft:Code New Roman:style=Bold Italic:size=16:antialias=true
 
 !keeping the same font size on all screens
 Xft.dpi:96
@@ -14,50 +14,50 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 !depth for custom opacity
-URxvt.depth: 32
+!URxvt.depth: 32
 
-URxvt.geometry: 123x34 
+!URxvt.geometry: 123x34 
 ! special
-URxvt.foreground:   #c5c8c6
-URxvt.background:   #141e26
-URxvt.cursorColor:  #c5c8c6
+URxvt.foreground:   #d0d0d0
+URxvt.background:   #3f3f3f
+!URxvt.cursorColor:  
 
 ! black
-URxvt.color0:       #141e26
-URxvt.color8:       #5B6C7E
+URxvt.color0:      #4e4e4e 
+URxvt.color8:      #626262
 
 ! red
-URxvt.color1:       #d72230
-URxvt.color9:       #fe686d
+URxvt.color1:      #d68787
+URxvt.color9:      #d75f87
 
 ! green
-URxvt.color2:       #08a65c
-URxvt.color10:      #08f998
+URxvt.color2:      #5f865f
+URxvt.color10:     #87af87
 
 ! yellow
-URxvt.color3:       #de935f
-URxvt.color11:      #f0c674
+URxvt.color3:      #d8af5f
+URxvt.color11:     #ffd787
 
 ! blue
-URxvt.color4:       #256789
-URxvt.color12:      #A19FDD
+URxvt.color4:      #85add4
+URxvt.color12:     #add4fb
 
 ! magenta
-URxvt.color5:       #710e73
-URxvt.color13:      #f205e2
+URxvt.color5:      #d7afaf
+URxvt.color13:     #ffafaf
 
 ! cyan
-URxvt.color6:       #005E58
-URxvt.color14:      #01F2D2
+URxvt.color6:      #87afaf
+URxvt.color14:     #87d7d7
 
 ! white
-URxvt.color7:       #b0b3a2
-URxvt.color15:      #ebe8c5
+URxvt.color7:      #d0d0d0
+URxvt.color15:     #e4e4e4
 
 ! color for bold, italics, underline
-URxvt.colorIT:      #08a65c 
-URxvt.colorBD:      #f205e2
-URxvt.colorUL:      #01F2D2
+!URxvt.colorIT:      #08a65c 
+!URxvt.colorBD:      #f205e2
+!URxvt.colorUL:      #01F2D2
 !disabling the scrollbar on edges
 URxvt.scrollBar:False
 
@@ -65,7 +65,7 @@ URxvt.scrollBar:False
 !URxvt.borderColor: #256789
 
 URxvt.externalBorder:0
-URxvt.internalBorder:0
+URxvt.internalBorder:15
 
 !tabs support, resize font in terminal
 !URxvt.perl-ext-common: tabbedex
