@@ -1,0 +1,105 @@
+let mapleader = " "
+
+" document viewer for latex preview
+let g:livepreview_previewer = 'zathura'
+let g:tex_flavor = "latex"
+
+" setting <tab> key to activate the snippets
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" setting the snippets folder where UltiSnips searches
+let g:UltiSnipsSnippetDirectories=["~/.vim/mysnippets/"]
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
+" quickly edit vimrc
+nnoremap <leader>ev :tabe $MYVIMRC<CR>
+
+" source vimrc
+nnoremap <leader>sv :so $MYVIMRC<CR>
+
+" <space>a to append at the end of the line
+nnoremap <leader>a ea
+
+" <space>p to generate a latex document preview
+nnoremap <leader>p :LLPStartPreview<CR>
+
+" <space>h to disable highlighted words (normal mode only)
+nnoremap <leader>h :nohls<CR> 
+
+" change buffer quickly
+nnoremap <leader>b :buffers<CR>:buffer<space>
+
+" start goyo for zenmode
+nnoremap <leader>g :Goyo<CR>
+
+" jump to next placeholder
+nnoremap <leader>j /<++><CR>:nohls<CR>cf>
+nnoremap <leader>k ?<++><CR>:nohls<CR>cf>
+
+" enabling plugins and tools based on filetypes
+filetype on
+
+" filetype plugin on
+filetype indent on
+
+" indent based on the line before
+set autoindent 
+set smartindent
+
+" numbered lines, numbering from the current one
+set number relativenumber
+
+" autocompletion for file names
+set wildmenu
+set wildmode=longest,list
+
+" syntax highlighting on
+set syntax=on
+
+" the split screens open on the right and bottom
+set splitbelow splitright
+
+" tabs as indent of 4 spaces
+set softtabstop=4 shiftwidth=4 expandtab 
+
+" Highlight matching search patterns
+set hlsearch
+
+" Enable incremental search
+set incsearch
+
+" Include matching uppercase words with lowercase search term
+set ignorecase
+
+" Include only uppercase words with uppercase search term
+set smartcase
+
+" show keypresses in normal mode
+set showcmd
+
+" start vim in dark colors
+syntax enable
+set t_Co=16
+set background=dark
+
+" disabling comment auto continuing (see :help formatoptions)
+set formatoptions-=c
+set formatoptions-=r
+set formatoptions-=o
+
+" enabling the autoread feature (if a file is changed out of the editor 
+" it reads it again ad refreshes the page
+set autoread
+

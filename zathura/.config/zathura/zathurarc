@@ -1,0 +1,10 @@
+# zathura config file
+set recolor-darkcolor "#EBDBB2"
+set recolor-lightcolor "#282828"
+set default-bg "#282828"
+set recolor true
+
+#background: '#282828'
+#foreground: '#ebdbb2'
+#black:   '#928374'
+#white:   '#ebdbb2'

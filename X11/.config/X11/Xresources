@@ -1,0 +1,92 @@
+!font 
+! *.font: xft:Iosevka:style=Regular:size=14:antialias=true, xft:Noto Color Emoji:stle=Regular
+! *.boldFont: xft:Iosevka:style=Bold:size=14:antialias=true
+! *.italicFont: xft:Iosevka:style=Italic:size=14:antialias=true
+! *.boldItalicFont: xft:Iosevka:style=Bold Italic:size=14:antialias=true
+
+!keeping the same font size on all screens
+Xft.dpi:96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+!depth for custom opacity
+URxvt.depth: 32
+
+URxvt.geometry: 123x34 
+! special
+URxvt.foreground:   #c5c8c6
+URxvt.background:   #141e26
+URxvt.cursorColor:  #c5c8c6
+
+! black
+URxvt.color0:       #141e26
+URxvt.color8:       #5B6C7E
+
+! red
+URxvt.color1:       #d72230
+URxvt.color9:       #fe686d
+
+! green
+URxvt.color2:       #08a65c
+URxvt.color10:      #08f998
+
+! yellow
+URxvt.color3:       #de935f
+URxvt.color11:      #f0c674
+
+! blue
+URxvt.color4:       #256789
+URxvt.color12:      #A19FDD
+
+! magenta
+URxvt.color5:       #710e73
+URxvt.color13:      #f205e2
+
+! cyan
+URxvt.color6:       #005E58
+URxvt.color14:      #01F2D2
+
+! white
+URxvt.color7:       #b0b3a2
+URxvt.color15:      #ebe8c5
+
+! color for bold, italics, underline
+URxvt.colorIT:      #08a65c 
+URxvt.colorBD:      #f205e2
+URxvt.colorUL:      #01F2D2
+!disabling the scrollbar on edges
+URxvt.scrollBar:False
+
+!changing the color of the border
+!URxvt.borderColor: #256789
+
+URxvt.externalBorder:0
+URxvt.internalBorder:0
+
+!tabs support, resize font in terminal
+!URxvt.perl-ext-common: tabbedex
+!resize-font
+
+!Default keybindings for resize-font
+!URxvt.keysym.C-minus:     resize-font:smaller
+!URxvt.keysym.C-plus:      resize-font:bigger
+!URxvt.keysym.C-equal:     resize-font:reset
+!URxvt.keysym.C-question:  resize-font:show
+
+!changing tabs color
+!URxvt.tabbedex.tabbar-fg: 2
+!URxvt.tabbedex.tabbar-bg: 0
+!URxvt.tabbedex.tab-fg: 3
+!URxvt.tabbedex.tab-bg: 0
+
+!keybindings for tabs movement
+!URxvt.keysym.Control-t: perl:tabbedex:new_tab
+!URxvt.keysym.Shift-Right: perl:tabbedex:next_tab
+!URxvt.keysym.Shift-Left: perl:tabbedex:prev_tab
+!URxvt.keysym.Control-Left: perl:tabbedex:move_tab_left
+!URxvt.keysym.Control-Right: perl:tabbedex:move_tab_right
+!URxvt.keysym.Shift-Up: perl:tabbedex:rename_tab

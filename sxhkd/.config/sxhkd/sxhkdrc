@@ -1,0 +1,49 @@
+# special keybindings
+
+# increase/decrease brightness ( -q option to avoid output )
+XF86MonBrightness{Down,Up}
+    brightnessctl -q set {10%-,+10%}
+
+# increase/decrease volume
+XF86Audio{Lower,Raise}Volume
+    pulsemixer --change-volume {-,+}5
+
+# mute/unmute audio
+XF86AudioMute
+    pulsemixer --toggle-mute
+
+# shutdown prompt
+super+shift+x
+    $HOME/.local/bin/prompt "do you want to shutdown?" "shutdown -h now"
+
+# start web browser 
+super+b
+    setsid $BROWSER
+
+# start lf file manager 
+super+shift+l
+    [ $(echo -e "pcmanfm\nlf" | dmenu_col -p "Select the file manager") = "lf" ] && $TERMINAL -e lf || pcmanfm
+
+# start icon selector prompt
+super+e
+    $HOME/.local/bin/icon_select
+
+# warn of caps lock acrivation
+Caps_Lock
+    notify-send -t 2000 "Caps Lock toggled"
+
+# manage HDMI external output
+super+m
+    echo -e "right\nleft\nabove\nbelow" | dmenu_col -p "Where to place the HDMI output?" | xargs $HOME/.local/bin/exmon
+
+# todo manager based on t and dmenu
+super+t
+    $HOME/.local/bin/dmenu_todo
+
+# start a terminal
+#super+Return
+#    alacritty
+
+# Toggle laptop keyboard with F10 special key (not the function number)
+XF86Tools
+    $HOME/.local/bin/keyboard-toggle

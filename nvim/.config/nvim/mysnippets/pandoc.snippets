@@ -1,0 +1,149 @@
+priority -1
+
+snippet beg "general environment" i
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+snippet mm "inline math $...$" i
+$$1$$0
+endsnippet
+
+snippet eq "\equation{}" b 
+$$$1$$
+$0
+endsnippet
+
+snippet bf "\textbf{}" i
+**$1** $0
+endsnippet
+
+snippet it "\textit{}" i
+*$1* $0
+endsnippet
+
+snippet ms "\texttt{} monospace font" i
+\`\`\`$1\`\`\` $0
+endsnippet
+
+snippet set "numerical set, \mathbb{}" i
+\mathbb{$1}
+endsnippet
+
+snippet cal "handwritten character, \mathcal{}" i
+\mathcal{$1}
+endsnippet
+
+snippet |= "logical consequence" i
+\vDash
+endsnippet
+
+snippet sum "\sum{}{}" i
+\sum_{$1}${2:^{$3}} 
+endsnippet
+
+snippet fr "\frac{}{}" i
+\frac{$1}{$2} $0
+endsnippet
+
+snippet plot "creates a pgfplot environment" b
+%
+\begin{tikzpicture}
+    \begin{axis}[$1]
+	\addplot[$2]
+	{$3};
+    \end{axis}
+\end{tikzpicture}%
+endsnippet
+
+snippet tab "creates a table structure" b
+\begin{table}[!h]
+    ${1:\center}
+    \begin{tabular}{$2}
+	$3
+    \end{tabular}
+\end{table}
+$0
+endsnippet
+
+snippet lim "\lim_{}" i
+\lim_{$1} $0
+endsnippet
+
+
+snippet pre "preamble" b
+\documentclass{article}
+\input{../preamble/preamble.tex}
+\date{$1}
+
+\begin{document}
+
+$0
+
+\end{document}
+endsnippet
+
+snippet vec "\vec{}" i
+\vec{$1} $0
+endsnippet
+
+snippet fig "![]()" i
+![$1]($2)
+
+$0
+endsnippet
+
+snippet not "\lnot" i
+\lnot $0
+endsnippet
+
+snippet and "\land" i
+\land $0
+endsnippet
+
+snippet or "\lor" i
+\lor $0
+endsnippet
+
+snippet imp "\implies" i
+\to $0
+endsnippet
+
+snippet sup "superscript" i
+$1^$2 $0
+endsnippet
+
+snippet ... "\ldots" i
+\ldots$0
+endsnippet
+
+snippet mn "math node in a tree (forest package)" i
+[{$$1$}$0]
+endsnippet
+
+snippet ded "(\vdash) deduction"  i
+\triangleright $0
+endsnippet
+
+snippet ax "natural deduction axiom" bA
+\AxiomC{$1}$0
+endsnippet
+
+snippet uinf "natural deduction unary inference" bA
+\UnaryInfC{$1}$0
+endsnippet
+
+snippet binf "natural deduction unary inference" bA
+\BinaryInfC{$1}$0
+endsnippet
+
+snippet tinf "natural deduction unary inference" bA
+\TrinaryInfC{$1}$0
+endsnippet
+
+snippet htex "hardcoded latex" bA
+\`\`\`{=latex}
+$1
+\`\`\`
+endsnippet

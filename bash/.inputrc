@@ -1,0 +1,11 @@
+set colored-stats On
+set completion-ignore-case On
+set enable-bracketed-paste On
+set mark-modified-lines On
+set match-hidden-files On
+set show-all-if-ambiguous On
+set skip-completed-text On
+
+# Keybindings
+TAB:menu-complete
+Control-TAB:menu-complete-backward
