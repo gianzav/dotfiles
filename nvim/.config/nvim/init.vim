@@ -60,7 +60,7 @@ Plug 'preservim/tagbar'
 Plug 'junegunn/seoul256.vim'
 Plug 'dhruvasagar/vim-dotoo'
 "Plug 'sheerun/vim-polyglot'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
 
@@ -149,8 +149,8 @@ filetype indent on
 " SETS
 
 " tree-sitter based folding
-set foldmethod=manual
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldmethod=manual
+" set foldexpr=nvim_treesitter#foldexpr()
 
 " disable line wrapping
 set nowrap
@@ -236,25 +236,25 @@ command! NoSpacedBraces :%s/( \(.*\) )/(\1)/g
 
 " LUA
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
-      },
-  },
-  indent = {
-    enable = true
-  },
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   highlight = {
+"     enable = true,
+"   },
+"   incremental_selection = {
+"       enable = true,
+"       keymaps = {
+"         init_selection = "gnn",
+"         node_incremental = "grn",
+"         scope_incremental = "grc",
+"         node_decremental = "grm",
+"       },
+"   },
+"   indent = {
+"     enable = true
+"   },
+" }
+" EOF
 
 " AUTOCOMMANDS
 command! TabTerm :tabe | :term

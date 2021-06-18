@@ -47,3 +47,6 @@ super+t
 # Toggle laptop keyboard with F10 special key (not the function number)
 XF86Tools
     $HOME/.local/bin/keyboard-toggle
+
+XF86Launch1
+	[ $(xbacklight | cut -d. -f1) -ge 90 ] && xbacklight -set 0 || xbacklight -inc 20

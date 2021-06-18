@@ -39,7 +39,7 @@ settings:
   fonts.default_family:
     global: Code New Roman
   fonts.default_size:
-    global: 14pt
+    global: 8pt
   input.insert_mode.plugins:
     global: true
   scrolling.smooth:

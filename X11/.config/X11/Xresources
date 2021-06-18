@@ -1,8 +1,8 @@
 !font 
-*.font: xft:Code New Roman:style=Regular:size=16:antialias=true, xft:Noto Color Emoji:stle=Regular
-*.boldFont: xft:Code New Roman:style=Bold:size=16:antialias=true
-*.italicFont: xft:Code New Roman:style=Italic:size=16:antialias=true
-*.boldItalicFont: xft:Code New Roman:style=Bold Italic:size=16:antialias=true
+*.font: xft:Code New Roman:style=Regular:size=12:antialias=true, xft:Noto Color Emoji:stle=Regular
+*.boldFont: xft:Code New Roman:style=Bold:size=12:antialias=true
+*.italicFont: xft:Code New Roman:style=Italic:size=12:antialias=true
+*.boldItalicFont: xft:Code New Roman:style=Bold Italic:size=12:antialias=true
 
 !keeping the same font size on all screens
 Xft.dpi:96

@@ -26,7 +26,7 @@ export TERMINAL="alacritty"
 alias uni="cd /home/gianluca/Documents/Uni/classnotes/"
 
 # Start Xserver on startup looking in the XDG compliant directories
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+if [[ $(tty) = /dev/tty1 ]]; then
 	exec startx "$XDG_CONFIG_HOME/X11/xinitrc" -- "$XDG_CONFIG_HOME/X11/xserverrc" vt1
 fi
 
