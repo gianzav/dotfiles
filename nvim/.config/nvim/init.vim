@@ -12,6 +12,7 @@ let mapleader = " "
 " set the background color for seoul256 colorscheme
 let g:seoul256_background = 236
 
+
 " VIM-LATEX-LIVE-PREVIEW VARIABLES
 " document viewer for latex preview
 let g:livepreview_previewer = 'zathura'
@@ -175,7 +176,7 @@ set splitbelow splitright
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab 
 
 " Highlight matching search patterns
-set nohls
+" set nohls
 
 " Enable incremental search
 set incsearch
@@ -194,6 +195,10 @@ set showcmd
 syntax enable
 set termguicolors
 colorscheme seoul256
+
+" let the background be transparent
+hi Normal guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
 
 " disabling comment auto continuing (see :help formatoptions)
 set formatoptions-=c
@@ -218,7 +223,7 @@ set eadirection=ver
 packadd termdebug
 
 " Custom highlight group, see autocommands below for use
-highlight MyHl ctermbg=blue guibg=blue
+" highlight MyHl ctermbg=blue guibg=blue
 
 " USER COMMANDS
 
