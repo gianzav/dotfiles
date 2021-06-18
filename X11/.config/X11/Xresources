@@ -14,7 +14,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 !depth for custom opacity
-!URxvt.depth: 32
+URxvt.depth: 32
 
 URxvt.letterSpace: -1
 
