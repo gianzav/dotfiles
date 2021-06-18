@@ -9,12 +9,14 @@ Xft.dpi:96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
-Xft.autohint: false
+Xft.autohint: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 !depth for custom opacity
 !URxvt.depth: 32
+
+URxvt.letterSpace: -1
 
 !URxvt.geometry: 123x34 
 ! special
