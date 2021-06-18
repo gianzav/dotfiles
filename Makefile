@@ -1,4 +1,4 @@
-INSTALL=pacman -S
+INSTALL=xbps-install -S
 
 all: essentials misc audio xorg scripts repos dwm t
 
