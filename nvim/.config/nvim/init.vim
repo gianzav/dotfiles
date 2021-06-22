@@ -1,8 +1,9 @@
- set runtimepath^=~/.config/nvim runtimepath+=~/.vim/after
- let &packpath = &runtimepath
+set runtimepath^=~/.config/nvim 
+set runtimepath+=~/.vim/after
+let &packpath = &runtimepath
 
 " add coc bindings and settings
-source ~/.config/nvim/coc.vim
+" source ~/.config/nvim/coc.vim
 
 " add every directory and subdirectory to search path (fuzzy file finding)
 set path+=**
@@ -20,20 +21,13 @@ let g:tex_flavor = "latex"
 
 " ULTISNIPS VARIABLES
 " setting <tab> key to activate the snippets
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 
 " setting the snippets folder where UltiSnips searches
 let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/mysnippets/"]
-
-
-" MARKDOWN-PREVIEW VARIABLES
-let g:mkdp_browser = 'firefox'
-let g:mkdp_echo_preview_url = 1
-
-" GRUVBOX VARIABLES
-let g:gruvbox_italic = 1
 
 " Start netrw in 'tree' style
 let g:netrw_liststyle = 3
@@ -41,42 +35,50 @@ let g:netrw_liststyle = 3
 " Prevent AutoPairs to insert a double space into brackets/parentheses
 let g:AutoPairsMapSpace = 0
 
+
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'lifepillar/vim-mucomplete'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
-Plug 'junegunn/goyo.vim'
-Plug 'yuezk/vim-js'
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" Plug 'lervag/vimtex'
+" Plug 'sirver/ultisnips'
+" Plug 'junegunn/goyo.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-"Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
-"Plug 'junegunn/limelight.vim'
-"Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'dhruvasagar/vim-dotoo'
-"Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'folke/lsp-colors.nvim'
 
 call plug#end()
 
+
+source ~/.config/nvim/nvim-clangd.vim
+source ~/.config/nvim/lsp.vim
+source ~/.config/nvim/mucomplete.vim
+lua << EOF
+require'sumneko_lua'
+EOF
+
+lua << EOF
+vim.lsp.set_log_level('debug')
+EOF
+
+" mucomplete configuration
+set completeopt=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+let g:mucomplete#enable_auto_startup = 1
 
 " MAPPINGS
 
 " Search files with fzf
 nnoremap <silent> <C-p> :Files<CR>
-
-" move quickly between widows
-nnoremap <silent> <leader>j :wincmd j<CR>
-nnoremap <silent> <leader>k :wincmd k<CR>
-nnoremap <silent> <leader>l :wincmd l<CR>
-nnoremap <silent> <leader>h :wincmd h<CR>
 
 " move lines with Alt-j Alt-k
 nnoremap <silent> <A-j> :m .+<CR>
@@ -114,6 +116,11 @@ nnoremap <leader>g :Goyo 90<CR>:set textwidth=80<CR>
 " jump to next and previous quickfix entry
 nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprev<CR>
+
+" close local and quickfix list
+nnoremap <leader>cc :cclose \| lclose<CR>
 
 " copy and paste easily from system clipboard
 vnoremap <leader>C "+y:echo "copied to clipboard"<CR>
@@ -147,6 +154,15 @@ filetype indent on
 
 
 " SETS
+
+" allow to open a new buffer if the current is not saved
+set hidden
+
+" enable the column for signs (left of line numbers)
+set signcolumn=yes
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess=c
 
 " tree-sitter based folding
 set foldmethod=manual
