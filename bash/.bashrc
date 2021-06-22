@@ -67,6 +67,7 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 # alias exmon='xrandr --auto && xrandr --output HDMI-A-0 --right-of eDP'
 alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
+alias e="nvim"
 
 # User configuration
 
@@ -120,3 +121,5 @@ function qt() {
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+alias luamake=/home/gianluca/repos/lua-language-server/3rd/luamake/luamake
