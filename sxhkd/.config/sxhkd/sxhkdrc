@@ -14,7 +14,7 @@ XF86AudioMute
 
 # shutdown prompt
 super+shift+x
-    $HOME/.local/bin/prompt "do you want to shutdown?" "shutdown -h now"
+    $HOME/.local/scripts/prompt "do you want to shutdown?" "sudo shutdown -h now"
 
 # start web browser 
 super+b
@@ -26,7 +26,7 @@ super+shift+l
 
 # start icon selector prompt
 super+e
-    $HOME/.local/bin/icon_select
+    $HOME/.local/scripts/icon_select
 
 # warn of caps lock acrivation
 Caps_Lock
@@ -34,11 +34,11 @@ Caps_Lock
 
 # manage HDMI external output
 super+m
-    echo -e "right\nleft\nabove\nbelow" | dmenu_col -p "Where to place the HDMI output?" | xargs $HOME/.local/bin/exmon
+    echo -e "right\nleft\nabove\nbelow" | dmenu_col -p "Where to place the HDMI output?" | xargs $HOME/.local/scripts/exmon
 
 # todo manager based on t and dmenu
 super+t
-    $HOME/.local/bin/dmenu_todo
+    $HOME/.local/scripts/dmenu_todo
 
 # start a terminal
 #super+Return
@@ -46,4 +46,4 @@ super+t
 
 # Toggle laptop keyboard with F10 special key (not the function number)
 XF86Tools
-    $HOME/.local/bin/keyboard-toggle
+    $HOME/.local/scripts/keyboard-toggle

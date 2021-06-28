@@ -36,7 +36,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export ARCHFLAGS="-arch x86_64"
 
 # Path to local script in home, to use pywal (color schemes generator)
-export PATH="$PATH:$HOME/.local/bin:/usr/bin/node:/usr/bin/npm:$HOME/.emacs.d/bin/:"
+export PATH="$PATH:$HOME/.local/bin:/usr/bin/node:/usr/bin/npm:$HOME/.local/scripts"
 
 # Default web browser
 export BROWSER='qutebrowser'
@@ -57,7 +57,7 @@ alias tlmgr='TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 # other aliases
 alias ls="ls --color=auto"
 alias zathura="zathura --fork"
-alias sc="cd $HOME/.local/bin/"
+alias sc="cd $HOME/.local/scripts/"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias dmesg='dmesg -He'
 alias ls='ls --color=auto'
