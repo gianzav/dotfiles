@@ -24,6 +24,7 @@ settings:
     global: dark
   content.media.audio_capture:
     https://teams.microsoft.com: true
+    https://web.whatsapp.com: true
   content.media.audio_video_capture:
     https://app.roll20.net: false
     https://teams.microsoft.com: true

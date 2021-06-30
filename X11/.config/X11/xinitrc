@@ -37,7 +37,6 @@ fi
 
 #setxkbmap -option caps:escape_shifted_capslock
 #brightnessctl -q set 50%
-xrandr --auto
 sxhkd &
 $HOME/.local/scripts/bar &
 picom --config $HOME/.config/picom/picom.conf &

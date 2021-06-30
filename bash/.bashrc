@@ -22,6 +22,7 @@ export HISTFILE="$HOME/.cache/bash_history"
 export PAGER="less"
 export READER="zathura"
 export JAVA_HOME="/usr/lib/jvm/java-14-openjdk"
+export TRASH="$HOME/.trash"
 
 # colored man pages (less variables)
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -68,6 +69,20 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
 alias e="nvim"
+
+# trash can config
+function trashp() {
+    mv -v "$@" "$TRASH"
+}
+
+function trashc() {
+    echo "Do you want to clean the trash can? (y/N)"
+    read choice
+    [ $choice = "y" || $choice = "yes" ] && rm -rf $TRASH/* || exit 0
+}
+
+alias trashl="ls -lah $TRASH"
+
 
 # User configuration
 
