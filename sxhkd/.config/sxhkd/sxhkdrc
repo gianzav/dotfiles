@@ -41,8 +41,12 @@ super+t
     $HOME/.local/scripts/dmenu_todo
 
 # start a terminal
-#super+Return
-#    alacritty
+super+shift+Return
+    alacritty
+
+# run programs
+super+d
+    dmenu_run -x $((1920/2 - 1920/8)) -y $((1080/2)) -z $((1920/4))
 
 # Toggle laptop keyboard with F10 special key (not the function number)
 XF86Tools
