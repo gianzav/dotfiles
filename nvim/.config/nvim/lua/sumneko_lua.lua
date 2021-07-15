@@ -19,6 +19,8 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+  on_attach = on_attach;
+  filetypes = {"lua", "love"};
   settings = {
     Lua = {
       runtime = {
@@ -29,7 +31,8 @@ require'lspconfig'.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = {'vim', 'love'},
+        disable = {'lowercase-global'},
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

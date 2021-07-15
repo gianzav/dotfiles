@@ -46,7 +46,7 @@ super+shift+Return
 
 # run programs
 super+d
-    dmenu_run -x $((1920/2 - 1920/8)) -y $((1080/2)) -z $((1920/4))
+    dmenu_run -z $((1920/4)) -x $((1920/2)) -y $((1080/2)) 
 
 # Toggle laptop keyboard with F10 special key (not the function number)
 XF86Tools

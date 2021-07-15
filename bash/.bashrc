@@ -15,13 +15,19 @@ blue='\[\e[1;34m\]' # 1 before color means bold
 set -o vi
 
 
+# JAVA VARIABLES
+# export JAR="/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
+# export GRADLE_HOME=$HOME/.gradle
+# export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+# export JDTLS_CONFIG="/usr/share/java/jdtls/config_linux"
+# export WORKSPACE=$HOME/dev/workspace
+
 # ENV VARIABLES
 
 export PS1="[$green\W$nocolor]\n> "
 export HISTFILE="$HOME/.cache/bash_history"
 export PAGER="less"
 export READER="zathura"
-export JAVA_HOME="/usr/lib/jvm/java-14-openjdk"
 export TRASH="$HOME/.trash"
 
 # colored man pages (less variables)
@@ -40,7 +46,10 @@ export ARCHFLAGS="-arch x86_64"
 export PATH="$PATH:$HOME/.local/bin:/usr/bin/node:/usr/bin/npm:$HOME/.local/scripts"
 
 # Default web browser
-export BROWSER='qutebrowser'
+export BROWSER='brave'
+ 
+# Default terminal
+export TERMINAL='alacritty'
 
 # setting an alias to use "config" as command to commit dotfiles changes
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
