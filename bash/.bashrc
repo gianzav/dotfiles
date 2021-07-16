@@ -18,7 +18,7 @@ set -o vi
 # JAVA VARIABLES
 # export JAR="/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
 # export GRADLE_HOME=$HOME/.gradle
-# export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
 # export JDTLS_CONFIG="/usr/share/java/jdtls/config_linux"
 # export WORKSPACE=$HOME/dev/workspace
 
