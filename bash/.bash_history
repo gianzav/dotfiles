@@ -56,3 +56,61 @@ cd ..
 man bash
 man bash
 menu-complete
+clear
+ls
+sudo pacman -S git make nvidia
+clear
+pacman -S wget
+sudo pacman -S wget
+clear
+ls
+git clone https://github.com/gianzav/dotfiles
+ls -la
+rm .bash*
+ls
+sudo pacman -S alacritty
+sudo pacman -S alacritty
+sudo pacman -S artix-archlinux-support arch-mirrors
+sudo pacman -S artix-archlinux-support arch-mirror
+sudo pacman -Ss mirror
+sudo pacman -S artix-archlinux-support archlinux-mirrorlist
+pacman-key --populate archlinux
+sudo vim /etc/pacman.conf 
+pacman-key --populate archlinux
+sudo pacman-key --populate archlinux
+clear
+sudo pacman -Syyu
+clear
+cd dotfiles/
+ls
+git branch
+git checkout -m artixdesktop
+git checkout -b artixdesktop
+vim Makefile 
+make all
+vim Makefile 
+make all
+make all
+vim  Makefile 
+make scripts repos dwm t
+vim Makefile 
+make scripts repos dwm t
+celar
+clear
+stow */
+clear
+cd
+ls
+clear
+pacman -S alacritty
+sudo pacman -S alacritty
+clear
+cd
+cd repos/dwm
+ls
+vim config.h 
+sudo make install
+clear
+cd
+sc
+exit

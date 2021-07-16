@@ -21,10 +21,8 @@ let g:tex_flavor = "latex"
 
 " ULTISNIPS VARIABLES
 " setting <tab> key to activate the snippets
-" let g:UltiSnipsExpandTrigger = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
+let g:UltiSnipsExpandTrigger = "<f5>"        " Do not use <tab>
+let g:UltiSnipsJumpForwardTrigger = "<tab>"  " Do not use <c-j>
 
 " setting the snippets folder where UltiSnips searches
 let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/mysnippets/"]
@@ -43,7 +41,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 " Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " Plug 'lervag/vimtex'
-" Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips'
 " Plug 'junegunn/goyo.vim'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -54,16 +52,31 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
+Plug 'mfussenegger/nvim-jdtls'
 
 call plug#end()
 
 
-source ~/.config/nvim/nvim-clangd.vim
-source ~/.config/nvim/lsp.vim
+augroup clang
+    autocmd!
+    autocmd FileType c source ~/.config/nvim/nvim-clangd.vim
+augroup END
+
+augroup java
+    autocmd!
+    autocmd FileType java source ~/.config/nvim/java-lsp.vim
+    autocmd FileType java lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}, root_dir = require('jdtls.setup').find_root({'gradle.build', 'pom.xml'})})
+augroup END
+
+augroup lua
+    autocmd!
+    autocmd BufNewFile,BufRead *.love set filetype=lua
+    autocmd BufNewFile,BufReadPre *.lua lua require'sumneko_lua'
+augroup END
+
+
 source ~/.config/nvim/mucomplete.vim
-lua << EOF
-require'sumneko_lua'
-EOF
+source ~/.config/nvim/lsp.vim
 
 lua << EOF
 vim.lsp.set_log_level('debug')
@@ -76,6 +89,25 @@ set completeopt+=noinsert
 let g:mucomplete#enable_auto_startup = 1
 
 " MAPPINGS
+
+" Let mucomplete expand snippets from ultisnips
+" let g:ulti_expand_or_jump_res = 0
+
+" fun! TryUltiSnips()
+"     if !pumvisible() " With the pop-up menu open, let Tab move down
+"         call UltiSnips#ExpandSnippetOrJump()
+"     endif
+"     return ''
+" endf
+
+" fun! TryMUcomplete()
+"     return g:ulti_expand_or_jump_res ? "" : "\<plug>(MUcompleteFwd)"
+" endf
+
+" inoremap <plug>(TryUlti) <c-r>=TryUltiSnips()<cr>
+" imap <expr> <silent> <plug>(TryMU) TryMUcomplete()
+" imap <expr> <silent> <tab> "\<plug>(TryUlti)\<plug>(TryMU)"
+
 
 " Search files with fzf
 nnoremap <silent> <C-p> :Files<CR>
@@ -280,14 +312,6 @@ func Eatchar(pat)
    return (c =~ a:pat) ? '' : c
 endfunc
 
-augroup javasnippets
-    autocmd!
-    autocmd FileType java :iabbrev <buffer> re return;<ESC>i
-    autocmd FileType java :iabbrev <buffer> return USALOSHORTCUT
-    autocmd FileType java :inoreabbrev <buffer> main public static void main( String args[] ){}<ESC>i
-    autocmd FileType java setlocal commentstring=#\ %s
-augroup END
-
 augroup html
     autocmd!
     autocmd FileType html :inoreabbrev <buffer> p <p></p><ESC>F<h<CR>=Eatchar('\s')<CR><ESC>i
@@ -306,11 +330,4 @@ augroup markdown
     autocmd FileType markdown :nnoremap <F9> :silent !zathura --fork -P 61 ~/docs/manuals/pandoc_man.pdf<CR>
     autocmd FileType markdown :nnoremap <F10> :silent !zathura --fork ~/docs/manuals/latex_math_reference.pdf<CR>
     autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-augroup END
-
-augroup clang
-    autocmd!
-    autocmd FileType c :command! Proto :normal gg/prototype<CR>jV}y/main<CR>f{%o<CR><ESC>pV}:s/;$/ {/* TODO */}/g<CR>
-    autocmd FileType c :vnoremap <leader>c :s/\(.*\)/\/\/\1/g<CR>
-    autocmd FileType c setlocal commentstring=/*%s*/
 augroup END
