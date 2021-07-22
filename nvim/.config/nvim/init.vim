@@ -36,7 +36,7 @@ let g:AutoPairsMapSpace = 0
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'lifepillar/vim-mucomplete'
+" Plug 'lifepillar/vim-mucomplete'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 " Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -50,9 +50,12 @@ Plug 'junegunn/seoul256.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
+Plug 'mfussenegger/nvim-jdtls'
 Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
-Plug 'mfussenegger/nvim-jdtls'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -60,22 +63,27 @@ call plug#end()
 augroup clang
     autocmd!
     autocmd FileType c source ~/.config/nvim/nvim-clangd.vim
+    autocmd FileType c lua require'completion'.on_attach()
+    autocmd FileType c lua require'lsp_signature'.setup()
 augroup END
 
 augroup java
     autocmd!
     autocmd FileType java source ~/.config/nvim/java-lsp.vim
-    autocmd FileType java lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}, root_dir = require('jdtls.setup').find_root({'gradle.build', 'pom.xml'})})
+    autocmd FileType java lua require'completion'.on_attach()
+    autocmd FileType java lua require'lsp_signature'.setup()
 augroup END
 
 augroup lua
     autocmd!
     autocmd BufNewFile,BufRead *.love set filetype=lua
-    autocmd BufNewFile,BufReadPre *.lua lua require'sumneko_lua'
+    autocmd BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.lua lua require'sumneko_lua'
+    autocmd FileType lua lua require'completion'.on_attach()
+    autocmd FileType lua lua require'lsp_signature'.setup()
 augroup END
 
 
-source ~/.config/nvim/mucomplete.vim
+" source ~/.config/nvim/mucomplete.vim
 source ~/.config/nvim/lsp.vim
 
 lua << EOF
@@ -86,28 +94,13 @@ EOF
 set completeopt=menuone
 set completeopt+=noselect
 set completeopt+=noinsert
-let g:mucomplete#enable_auto_startup = 1
+" let g:mucomplete#enable_auto_startup = 1
 
 " MAPPINGS
 
-" Let mucomplete expand snippets from ultisnips
-" let g:ulti_expand_or_jump_res = 0
-
-" fun! TryUltiSnips()
-"     if !pumvisible() " With the pop-up menu open, let Tab move down
-"         call UltiSnips#ExpandSnippetOrJump()
-"     endif
-"     return ''
-" endf
-
-" fun! TryMUcomplete()
-"     return g:ulti_expand_or_jump_res ? "" : "\<plug>(MUcompleteFwd)"
-" endf
-
-" inoremap <plug>(TryUlti) <c-r>=TryUltiSnips()<cr>
-" imap <expr> <silent> <plug>(TryMU) TryMUcomplete()
-" imap <expr> <silent> <tab> "\<plug>(TryUlti)\<plug>(TryMU)"
-
+" Use <Tab> and <S-Tab> to navigate through popup menu for completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Search files with fzf
 nnoremap <silent> <C-p> :Files<CR>
@@ -123,7 +116,7 @@ nnoremap k kzz
 " Set a mark when performing a search to jump back
 " nnoremap / mj/
 
-" Use sane regex to perform a search
+" Use typical regex to perform a search
 nnoremap / /\v
 
 "open directory tree and set width
@@ -307,7 +300,7 @@ EOF
 " AUTOCOMMANDS
 command! TabTerm :tabe | :term
 
-func Eatchar(pat)
+func! Eatchar(pat)
    let c = nr2char(getchar(0))
    return (c =~ a:pat) ? '' : c
 endfunc

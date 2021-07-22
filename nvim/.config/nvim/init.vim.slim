@@ -1,0 +1,33 @@
+set runtimepath^=~/.config/nvim 
+set runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+let mapleader = " "
+
+call plug#begin('~/.config/nvim/plugged')
+Plug 'neovim/nvim-lspconfig'
+Plug 'junegunn/seoul256.vim'
+Plug 'folke/lsp-colors.nvim'
+Plug 'mfussenegger/nvim-jdtls'
+call plug#end()
+
+
+augroup java
+    autocmd!
+    autocmd FileType java source ~/.config/nvim/java-lsp.vim
+augroup END
+
+
+source ~/.config/nvim/lsp.vim
+
+set hidden
+set number
+set relativenumber
+colorscheme seoul256
+
+" builtin completion configuration
+set completeopt=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+
+" set the background color for seoul256 colorscheme
+let g:seoul256_background = 236
