@@ -23,6 +23,22 @@ alias uni="cd /home/gianluca/Documents/Uni/classnotes/"
 
 # Start Xserver on startup looking in the XDG compliant directories
 if [[ $(tty) = "/dev/tty1" ]]; then
-	exec startx "$XDG_CONFIG_HOME/X11/xinitrc" "dwm" -- "$XDG_CONFIG_HOME/X11/xserverrc" vt1
-fi
 
+    [[ -x /usr/bin/gnome-session || -x /usr/local/bin/gnome-session ]] && has_gnome=0 || has_gnome=1
+    [[ -x /usr/local/bin/dwm || -x /usr/bin/dwm ]] && has_dwm=0 || has_dwm=1
+
+    echo "Choose an option:"
+    [[ $has_gnome -eq 0 ]] && echo "1) gnome"
+    [[ $has_dwm -eq 0 ]] && echo "2) dwm"
+
+    read choice
+    if [[ $choice -eq 1 ]]; then
+        choice="gnome"
+    elif [[ $choice -eq 2 ]]; then
+        choice="dwm"
+    else
+        choice="dwm"
+    fi
+    
+	exec startx "$XDG_CONFIG_HOME/X11/xinitrc" "$choice" -- "$XDG_CONFIG_HOME/X11/xserverrc" vt1
+fi
