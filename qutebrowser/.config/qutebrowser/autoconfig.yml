@@ -24,6 +24,7 @@ settings:
     global: dark
   content.media.audio_capture:
     https://teams.microsoft.com: true
+    https://web.whatsapp.com: true
   content.media.audio_video_capture:
     https://app.roll20.net: false
     https://teams.microsoft.com: true
@@ -32,6 +33,7 @@ settings:
   content.notifications.enabled:
     https://www.infoworld.com: false
     https://www.reddit.com: false
+    https://www.youtube.com: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   downloads.open_dispatcher:
