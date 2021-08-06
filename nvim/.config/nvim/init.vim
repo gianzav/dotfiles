@@ -57,6 +57,7 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'yonlu/omni.vim'
 
 call plug#end()
 
@@ -83,6 +84,14 @@ augroup lua
     autocmd FileType lua lua require'lsp_signature'.setup()
 augroup END
 
+augroup js
+    autocmd!
+    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lspconfig'.tsserver.setup{}
+    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lsp_signature'.setup()
+    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'completion'.on_attach()
+    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lsp_signature'.setup()
+augroup END
+
 
 source ~/.config/nvim/lsp.vim
 
@@ -97,6 +106,9 @@ set completeopt+=noinsert
 " let g:mucomplete#enable_auto_startup = 1
 
 " MAPPINGS
+
+" Y yanks to the end of the line (same logic as D,C,S)
+nnoremap Y y$
 
 " Use <Tab> and <S-Tab> to navigate through popup menu for completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -128,15 +140,15 @@ nnoremap <leader>ev :e $MYVIMRC<CR>
 " source vimrc
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
-" change buffer quickly
-" nnoremap <leader>b :buffers<CR>:buffer<space>
+" change buffer quickly with FZF
+nnoremap <leader>b :Buffers<CR>
 
 " start goyo for zenmode
 nnoremap <leader>g :Goyo 90<CR>:set textwidth=80<CR>
 
 " jump to next placeholder
-" nnoremap <C-j> mk/<++><CR>:nohls<CR>cf>
-" nnoremap <C-k> mk?<++><CR>:nohls<CR>cf>
+ nnoremap <C-l> mk/<++><CR>:nohls<CR>cf>
+ nnoremap <C-h> mk?<++><CR>:nohls<CR>cf>
 
 " jump to next and previous quickfix entry
 nnoremap <C-k> :cprev<CR>
@@ -299,6 +311,7 @@ EOF
 
 " AUTOCOMMANDS
 command! TabTerm :tabe | :term
+command! TrailSpaces %s/ *$//g | :nohls
 
 func! Eatchar(pat)
    let c = nr2char(getchar(0))
