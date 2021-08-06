@@ -56,4 +56,5 @@ case "$session" in
 	       feh --no-fehbg --bg-fill $HOME/media/pics/wallpapers/skyway_bridge.jpg
 	       exec dwm ;;
     "gnome") exec gnome-session ;;
+    "xfce") exec xfce4-session ;;
 esac
