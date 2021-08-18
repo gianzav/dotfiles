@@ -63,6 +63,7 @@ call plug#end()
 
 augroup clang
     autocmd!
+    autocmd FileType c source ~/.config/nvim/lsp.vim
     autocmd FileType c source ~/.config/nvim/nvim-clangd.vim
     autocmd FileType c lua require'completion'.on_attach()
     autocmd FileType c lua require'lsp_signature'.setup()
@@ -70,6 +71,7 @@ augroup END
 
 augroup java
     autocmd!
+    autocmd FileType java source ~/.config/nvim/lsp.vim
     autocmd FileType java source ~/.config/nvim/java-lsp.vim
     autocmd FileType java lua require'completion'.on_attach()
     autocmd FileType java lua require'lsp_signature'.setup()
@@ -79,12 +81,14 @@ augroup lua
     autocmd!
     autocmd BufNewFile,BufRead *.love set filetype=lua
     autocmd BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.lua lua require'sumneko_lua'
+    autocmd FileType lua source ~/.config/nvim/lsp.vim
     autocmd FileType lua lua require'completion'.on_attach()
     autocmd FileType lua lua require'lsp_signature'.setup()
 augroup END
 
 augroup js
     autocmd!
+    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js source ~/.config/nvim/lsp.vim
     autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lspconfig'.tsserver.setup{}
     autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lsp_signature'.setup()
     autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'completion'.on_attach()
@@ -93,7 +97,6 @@ augroup END
 
 
 " source ~/.config/nvim/mucomplete.vim
-source ~/.config/nvim/lsp.vim
 
 lua << EOF
 vim.lsp.set_log_level('debug')

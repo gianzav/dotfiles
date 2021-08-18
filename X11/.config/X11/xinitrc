@@ -53,7 +53,7 @@ redshift -l '45.72:13.48' &
 case "$session" in
     "dwm") $HOME/.local/scripts/bar &
 	       picom --config $HOME/.config/picom/picom.conf &
-	       feh --no-fehbg --bg-fill $HOME/media/pics/wallpapers/skyway_bridge.jpg
+	       feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/crystal_cave.png
 	       exec dwm ;;
     "gnome") exec gnome-session ;;
     "xfce") exec xfce4-session ;;
