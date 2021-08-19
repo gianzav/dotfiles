@@ -1,0 +1,44 @@
+" Enable :Man command
+runtime ftplugin/man.vim
+
+let mapleader = " "
+
+set number relativenumber
+
+set ignorecase fileignorecase smartcase
+set incsearch
+
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+set nowrap
+set hidden
+set autoindent smartindent
+
+set syntax=on
+syntax enable
+
+set wildmenu wildmode=full
+set splitbelow splitright
+set showcmd
+
+set cursorline
+set autoread
+
+
+" prevent the windows (like the file split) from being resized automatically
+set noequalalways
+set eadirection=ver
+
+" no messages from completion menu (otherwise spawns a scratch buffer) set
+set shortmess=c
+
+filetype on
+filetype indent on
+
+tnoremap <ESC> <C-\><C-n>
+
+nnoremap <leader>w <C-w>
+
+" make the cursor always in the center of window when moving
+nnoremap j jzz
+nnoremap k kzz

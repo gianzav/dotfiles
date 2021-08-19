@@ -51,6 +51,9 @@ export BROWSER='brave'
 # Default terminal
 export TERMINAL='alacritty'
 
+# Wallpapers dir
+export WALLPAPERS="/home/gianluca/media/pics/wallpapers/"
+
 # setting an alias to use "config" as command to commit dotfiles changes
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
@@ -141,6 +144,16 @@ function qt() {
     line=${f##*:}
 
     nvim -c $line $filename
+}
+
+# choose interactively the background (mark in sxiv with 'm', only the first
+# mark is taken into account)
+function bg() {
+    wallpaper=$(sxiv -o $WALLPAPERS | head -n 1)
+    feh --bg-fill --no-fehbg $wallpaper
+
+    # different separator for sed because wallpaper contains '/'
+    sed -i "s|\(feh --no-fehbg --bg-fill\).*|\1 $wallpaper|" $XDG_CONFIG_HOME/X11/xinitrc
 }
 
 # ssh
