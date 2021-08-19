@@ -42,8 +42,8 @@ session="${1}"
 # echo "session variable: $session" >> ~/xinit.log
 
 # Laptop options
-# setxkbmap -option caps:escape_shifted_capslock
-# brightnessctl -q set 50%
+setxkbmap -option caps:escape_shifted_capslock
+brightnessctl -q set 50%
 
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
@@ -51,7 +51,7 @@ sxhkd &
 redshift -l '45.72:13.48' &
 
 case "$session" in
-    "dwm") $HOME/.local/scripts/bar &
+    "dwm") $HOME/.local/bin/bar &
 	       picom --config $HOME/.config/picom/picom.conf &
 	       feh --no-fehbg --bg-fill $HOME/media/pics/wallpapers/skyway_bridge.jpg
 	       exec dwm ;;

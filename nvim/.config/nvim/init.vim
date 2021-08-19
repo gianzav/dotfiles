@@ -61,6 +61,12 @@ Plug 'yonlu/omni.vim'
 
 call plug#end()
 
+" enabling plugins and tools based on filetypes
+filetype on
+
+" filetype plugin on
+filetype indent on
+
 
 augroup clang
     autocmd!
@@ -86,10 +92,10 @@ augroup END
 
 augroup js
     autocmd!
-    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lspconfig'.tsserver.setup{}
-    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lsp_signature'.setup()
-    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'completion'.on_attach()
-    autocmd BufNewFile,BufFilePre,BufRead,BufReadPre *.js lua require'lsp_signature'.setup()
+    autocmd  BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.js lua require'lspconfig'.tsserver.setup{}
+    autocmd  BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.js lua require'lsp_signature'.setup()
+    autocmd  BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.js lua require'completion'.on_attach()
+    autocmd  BufNew,BufAdd,BufReadPre,BufNewFile,BufRead *.js lua require'lsp_signature'.setup()
 augroup END
 
 
@@ -183,11 +189,6 @@ nnoremap <leader>w <C-w>
 " ABBREVIATIONS
 iabbrev lenght length
 
-" enabling plugins and tools based on filetypes
-filetype on
-
-" filetype plugin on
-filetype indent on
 
 
 " SETS
