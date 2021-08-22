@@ -30,6 +30,9 @@ let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/mysnippets/"]
 " Start netrw in 'tree' style
 let g:netrw_liststyle = 3
 
+" Use default applications to open files
+let g:netrw_browsex_viewer = 'xdg-open'
+
 " Prevent AutoPairs to insert a double space into brackets/parentheses
 let g:AutoPairsMapSpace = 0
 
