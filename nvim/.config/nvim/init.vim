@@ -57,6 +57,7 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'yonlu/omni.vim'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -268,6 +269,9 @@ set autoread
 " highlight cursor line
 set cursorline
 
+" highlight column 80
+set colorcolumn=80
+
 " enable mouse in normal and visual mode
 set mouse=nv
 
@@ -283,8 +287,10 @@ packadd termdebug
 
 " USER COMMANDS
 
-command! SpacedBraces :%s/(\([^ ].*[^ ]\))/( \1 )/g
-command! NoSpacedBraces :%s/( \(.*\) )/(\1)/g
+" 'e' flag to ignore the error if the pattern is not found
+command! SpacedBraces :%s/(\([^ ].*[^ ]\))/( \1 )/ge
+command! NoSpacedBraces :%s/( \(.*\) )/(\1)/ge
+command! Accents :%s/a'/à/ge | :%s/e'/è/ge | :%s/i'/ì/ge | :%s/o'/ò/ge | :%s/u'/ù/ge
 
 " insert grave characters (doesn't work)
 " %s/e'/é/g ; %s/e`/è/g ; %s/a'/á/g ; %s/a`/à/g ; %s/o'/ó/g ; %s/o`/ò/g ; %s/i'/í/g ; %s/i`/ì/g ; %s/u'/ú/g ; %s/u`/ù/
