@@ -45,15 +45,16 @@ session="${1}"
 # setxkbmap -option caps:escape_shifted_capslock
 # brightnessctl -q set 50%
 
-xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
+sudo alsactl restore
 sxhkd &
 redshift -l '45.72:13.48' &
 
 case "$session" in
     "dwm") $HOME/.local/scripts/bar &
 	       picom --config $HOME/.config/picom/picom.conf &
-	       feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/crystal_cave.png
+	       feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/evangelionbw.png
 	       exec dwm ;;
     "gnome") exec gnome-session ;;
     "xfce") exec xfce4-session ;;
