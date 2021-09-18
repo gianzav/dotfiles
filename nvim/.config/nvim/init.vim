@@ -58,16 +58,17 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'yonlu/omni.vim'
 Plug 'tpope/vim-repeat'
+Plug 'dbeniamine/cheat.sh-vim'
 
 call plug#end()
 
 
 augroup clang
     autocmd!
-    autocmd FileType c source ~/.config/nvim/lsp.vim
-    autocmd FileType c source ~/.config/nvim/nvim-clangd.vim
-    autocmd FileType c lua require'completion'.on_attach()
-    autocmd FileType c lua require'lsp_signature'.setup()
+    autocmd FileType c,cpp source ~/.config/nvim/lsp.vim
+    autocmd FileType c,cpp source ~/.config/nvim/nvim-clangd.vim
+    autocmd FileType c,cpp lua require'completion'.on_attach()
+    autocmd FileType c,cpp lua require'lsp_signature'.setup()
 augroup END
 
 augroup java
@@ -290,10 +291,9 @@ packadd termdebug
 " 'e' flag to ignore the error if the pattern is not found
 command! SpacedBraces :%s/(\([^ ].*[^ ]\))/( \1 )/ge
 command! NoSpacedBraces :%s/( \(.*\) )/(\1)/ge
-command! Accents :%s/a'/à/ge | :%s/e'/è/ge | :%s/i'/ì/ge | :%s/o'/ò/ge | :%s/u'/ù/ge
+command! Accents :%s/a'/à/geI | :%s/e'/è/geI | :%s/i'/ì/geI | :%s/o'/ò/geI | :%s/u'/ù/geI
+            \ | %s/À/À/geI | :%s/È/È/geI | :%s/Ì/Ì/geI | :%s/Ò/Ò/geI | :%s/Ù/Ù/geI
 
-" insert grave characters (doesn't work)
-" %s/e'/é/g ; %s/e`/è/g ; %s/a'/á/g ; %s/a`/à/g ; %s/o'/ó/g ; %s/o`/ò/g ; %s/i'/í/g ; %s/i`/ì/g ; %s/u'/ú/g ; %s/u`/ù/
 
 
 " LUA
