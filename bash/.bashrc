@@ -156,6 +156,10 @@ function bg() {
     sed -i "s|\(feh --no-fehbg --bg-fill\).*|\1 $wallpaper|" $XDG_CONFIG_HOME/X11/xinitrc
 }
 
+function screenrec() {
+    ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0.0+0,0 "$1"
+}
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
