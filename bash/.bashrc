@@ -81,6 +81,7 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
 alias e="nvim"
+alias sshpi="ssh pi@2.234.153.105 -p37648"
 
 # trash can config
 function trashp() {
