@@ -55,7 +55,7 @@ winedeps:
 # 	xfce4-session xfce4-panel xfdesktop xfwm4 xfce4-settings
 
 rawsync:
-	abduco acpi alacritty alsa-firmware alsa-utils android-file-transfer \
+	sudo ${INSTALL} abduco acpi alacritty alsa-firmware alsa-utils android-file-transfer \
 	android-sdk-platform-tools android-tools anki archlinux-mirrorlist \
 	artix-archlinux-support assimp audacity autoconf automake barrier base bat \
 	binutils bison bluedevil brave-bin brother-dcp1510 brutal-doom chrony-runit \
