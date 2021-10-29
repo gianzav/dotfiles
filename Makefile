@@ -41,11 +41,8 @@ dev:
 
 fonts: essentials
 	# noto-fonts noto
-	wget https://dl.dafont.com/dl/?f=code_new_roman
+	wget https://dl.dafont.com/dl/?f=code_new_roman -O ~/dl/code_new_roman
 
-wallpapers: essentials user-dirs
-	wget https://wallpapers.com/images/file/aesthetic-skyway-bridge-8j7aqjd01ip3apsz.jpg media/pics/wallpapers/skyway_bridge.jpg
-	
 winedeps:
 	sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \
 		mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \
@@ -54,5 +51,39 @@ winedeps:
 		ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 \
 		lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader wine-gecko
 
-xfce:
-	xfce4-session xfce4-panel xfdesktop xfwm4 xfce4-settings
+# xfce:
+# 	xfce4-session xfce4-panel xfdesktop xfwm4 xfce4-settings
+
+rawsync:
+	abduco acpi alacritty alsa-firmware alsa-utils android-file-transfer \
+	android-sdk-platform-tools android-tools anki archlinux-mirrorlist \
+	artix-archlinux-support assimp audacity autoconf automake barrier base bat \
+	binutils bison bluedevil brave-bin brother-dcp1510 brutal-doom chrony-runit \
+	clang connman-runit cronie-runit ctags cups cups-runit dhcpcd discord \
+	doomsday dunst efibootmgr elogind-runit esysusers ethtool etmpfiles \
+	fakeroot fbida feh file filezilla findutils firefox firejail flex fzf gawk \
+	gcc gdm-runit gettext gimp git gradle grep groff grub gzip htop intel-ucode \
+	jdk-openjdk latte-dock lib32-giflib lib32-gnutls \
+	lib32-gst-plugins-base-libs lib32-gtk3 lib32-libpulse lib32-libva \
+	lib32-libxcomposite lib32-libxinerama lib32-libxslt lib32-mpg123 \
+	lib32-nvidia-utils lib32-ocl-icd lib32-openal lib32-v4l-utils \
+	libreoffice-fresh libtool linux linux-firmware lmms love lua luarocks \
+	lutris m4 make man-db man-pages maven mpv neofetch neovim ninja \
+	noto-fonts-emoji npm ntfs-3g nvidia nvidia-dkms nvidia-settings ocl-icd \
+	openssh openssh-runit os-prober pacman pacman-contrib pandoc patch \
+	pavucontrol pcmanfm picom pkgconf pop-gtk-theme pulseaudio pulseaudio-alsa \
+	pulsemixer python-pip qmk qutebrowser redshift rsync runit samba \
+	samba-runit scrcpy scrot sed shellcheck socklog steam stow sudo sxhkd sxiv \
+	texinfo texlive-core texlive-latexextra tigervnc tmate ttf-dejavu \
+	ttf-font-awesome typescript udevil ungoogled-chromium unrar unzip vim \
+	virtualbox w3m wget which wine wine-gecko wine-mono winetricks wireshark-qt \
+	wkhtmltopdf x11vnc xclip xdg-user-dirs xdotool xf86-video-vesa \
+	xorg-bdftopcf xorg-docs xorg-font-util xorg-fonts-100dpi xorg-fonts-75dpi \
+	xorg-iceauth xorg-mkfontscale xorg-server-devel xorg-server-xephyr \
+	xorg-server-xnest xorg-server-xvfb xorg-sessreg xorg-smproxy xorg-x11perf \
+	xorg-xauth xorg-xbacklight xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo \
+	xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost xorg-xinit xorg-xinput \
+	xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms xorg-xlsclients \
+	xorg-xmodmap xorg-xpr xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xsetroot \
+	xorg-xvinfo xorg-xwayland xorg-xwd xorg-xwininfo xorg-xwud xterm yay \
+	youtube-dl zathura zathura-pdf-mupdf
