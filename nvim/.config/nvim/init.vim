@@ -62,6 +62,11 @@ Plug 'dbeniamine/cheat.sh-vim'
 
 call plug#end()
 
+augroup shell
+    autocmd!
+    autocmd FileType sh compiler shellcheck
+    autocmd BufWritePost <buffer> make %
+augroup END
 
 augroup clang
     autocmd!
