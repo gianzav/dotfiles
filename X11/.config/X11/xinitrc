@@ -60,4 +60,7 @@ case "$session" in
     "xfce") exec xfce4-session ;;
     "plasma") export DESKTOP_SESSION=plasma
               exec startplasma-x11 ;;
+    "awesome") picom --config $HOME/.config/picom/picom.conf &
+	           feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/templepixelart.png
+               exec awesome ;;
 esac
