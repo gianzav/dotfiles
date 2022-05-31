@@ -42,3 +42,10 @@ nnoremap <leader>w <C-w>
 " make the cursor always in the center of window when moving
 nnoremap j jzz
 nnoremap k kzz
+
+" place correcly grave letters
+command! Accents :%s/a'/à/geI | :%s/e'/è/geI | :%s/i'/ì/geI | :%s/o'/ò/geI | :%s/u'/ù/geI
+            \ | %s/À/À/geI | :%s/È/È/geI | :%s/Ì/Ì/geI | :%s/Ò/Ò/geI | :%s/Ù/Ù/geI
+
+" remove all trailing spaces
+command! TrailSpaces %s/ *$//g | :nohls
