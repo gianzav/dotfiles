@@ -24,7 +24,7 @@ export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
 
 # ENV VARIABLES
 
-export PS1="[$green\W$nocolor]\n> "
+export PS1="┌──[$green\W$nocolor]\n└─> "
 export HISTFILE="$HOME/.cache/bash_history"
 export PAGER="less"
 export READER="zathura"
@@ -46,7 +46,7 @@ export ARCHFLAGS="-arch x86_64"
 export PATH="$PATH:$HOME/.local/bin:/usr/bin/node:/usr/bin/npm:$HOME/.local/scripts"
 
 # Default web browser
-export BROWSER='brave'
+export BROWSER='firefox'
  
 # Default terminal
 export TERMINAL='alacritty'
@@ -68,6 +68,7 @@ alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
 alias tlmgr='TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 
 # other aliases
+alias nc="ncat"
 alias ls="ls --color=auto"
 alias zathura="zathura --fork"
 alias sc="cd $HOME/.local/scripts/"
@@ -82,6 +83,8 @@ alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
 alias e="nvim"
 alias sshpi="ssh pi@2.234.153.105 -p37648"
+alias clare="clear"
+alias clera="clear"
 
 # trash can config
 function trashp() {
@@ -114,7 +117,7 @@ fi
 # shows the current branch in prompt if in a git repo
 function cd() {
     builtin cd $1
-    export PS1="[$green\w$nocolor]$red`gitbranch`$nocolor\n> "
+    export PS1="┌──[$green\w$nocolor]$red`gitbranch`$nocolor\n└─> "
 }
 
 function cf() {
@@ -165,3 +168,5 @@ function screenrec() {
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 alias luamake=/home/gianluca/repos/lua-language-server/3rd/luamake/luamake
+
+[ -f "/home/gianluca/.ghcup/env" ] && source "/home/gianluca/.ghcup/env" # ghcup-env
