@@ -101,7 +101,7 @@ font:
     #   - (Windows) Consolas
     # family: BmPlus IBM VGA 8x16
     # family: Dejavu Sans Mono
-    family: Ubuntu Mono
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -115,7 +115,7 @@ font:
     # family: BmPlus IBM VGA 8x16
     # family: BmPlus IBM VGA 8x16
     # family: Dejavu Sans Mono
-    family: Ubuntu Mono
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -128,7 +128,7 @@ font:
     # value specified for the normal font.
     # family: BmPlus IBM VGA 8x16
     # family: Dejavu Sans Mono
-    family: Ubuntu Mono
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -141,13 +141,13 @@ font:
     # value specified for the normal font.
     # family: BmPlus IBM VGA 8x16
     # family: Dejavu Sans Mono
-    family: Ubuntu Mono
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -178,7 +178,7 @@ font:
 #   # Default colors
 #   primary:
 #     background: '#1e1e1e' #Background from Dark Theme
-#
+# 
 #   # Normal colors
 #   normal:
 #     black:   '#000000'
@@ -189,7 +189,7 @@ font:
 #     magenta: '#bc3fbc'
 #     cyan:    '#11a8cd'
 #     white:   '#e5e5e5'
-#
+# 
 #   # Bright colors
 #   bright:
 #     black:   '#666666'
@@ -207,7 +207,7 @@ font:
 #  primary:
 #    # hard contrast: background = '#1d2021'
 #    background: '#282828'
-#    # soft contrast:
+#    # soft contrast: 
 #    # background = '#32302f'
 #    foreground: '#ebdbb2'
 #
