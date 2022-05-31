@@ -70,6 +70,7 @@ alias tlmgr='TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 # other aliases
 alias nc="ncat"
 alias ls="ls --color=auto"
+alias la="ls -lah"
 alias zathura="zathura --fork"
 alias sc="cd $HOME/.local/scripts/"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -82,9 +83,6 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
 alias e="nvim"
-alias sshpi="ssh pi@2.234.153.105 -p37648"
-alias clare="clear"
-alias clera="clear"
 
 # trash can config
 function trashp() {

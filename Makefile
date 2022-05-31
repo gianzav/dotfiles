@@ -1,4 +1,4 @@
-INSTALL=pacman -S
+INSTALL=pacman -S --needed
 REPOS=${HOME}/repos
 
 all: user-dirs essentials misc audio xorg scripts repos dwm t fonts
