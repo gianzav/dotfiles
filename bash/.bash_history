@@ -114,3 +114,59 @@ clear
 cd
 sc
 exit
+clear
+cd 
+ls
+rm -r Makefile alacritty X11 bash fontconfig lf picom nvim sxhkd qutebrowser vim user-dirs wallpapers zathura
+clear
+cd do
+cd dotfiles/
+ls
+stow X11/
+cd ..
+cd .config/X11
+ls
+clear
+ls
+cd
+cd dotfiles/
+find . -type d
+man find
+find . -type d -maxdepth 0
+man find
+find . -type d -depth 0
+man find
+find . -type d -maxdepth 1
+find . -type d -maxdepth 1
+find . -type d -maxdepth 1 | stow
+find . -type d -maxdepth 1 | xargs stow
+clear
+man find
+find . -type d -maxdepth 1 -execute 'stow {}' ;
+find . -maxdepth 1 -type d -execute 'stow {}' ;
+man find
+curl cht.sh/find
+curl cht.sh/find 
+curl cht.sh/find  | grep exec
+curl cht.sh/find  | grep exec -C 2
+find . -maxdepth 1 -type d
+find . -maxdepth 1 -type d -exec stow {} \;
+find . -maxdepth 1 -type d -exec cut -d'/' -f2 {} | xargs stow \;
+find . -maxdepth 1 -type d -exec 'cut -d/ -f 2  \;
+find . -maxdepth 1 -type d -exec 'cut -d/ -f 2 | xargs stow' \;
+clear
+ls
+stow alacritty/
+stow */
+cd ..
+rm .bash*
+clear
+cd do
+cd dotfiles/
+stow */
+clear
+cd ..
+cd .config/X11/xinitrc 
+sudo pacman -S nvim
+sudo pacman -S neovim
+clear

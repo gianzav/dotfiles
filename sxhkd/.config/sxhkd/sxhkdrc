@@ -21,12 +21,12 @@ super+b
     setsid $BROWSER
 
 # start lf file manager 
-super+shift+l
-    [ $(echo -e "pcmanfm\nlf" | dmenu_col -p "Select the file manager") = "lf" ] && $TERMINAL -e lf || pcmanfm
+# super+shift+l
+#     [ $(echo -e "pcmanfm\nlf" | dmenu_col -p "Select the file manager") = "lf" ] && $TERMINAL -e lf || pcmanfm
 
 # start icon selector prompt
-super+e
-    $HOME/.local/scripts/icon_select
+# super+e
+#     $HOME/.local/scripts/icon_select
 
 # warn of caps lock acrivation
 Caps_Lock
@@ -37,17 +37,21 @@ super+m
     echo -e "right\nleft\nabove\nbelow" | dmenu_col -p "Where to place the HDMI output?" | xargs $HOME/.local/scripts/exmon
 
 # todo manager based on t and dmenu
-super+t
-    $HOME/.local/scripts/dmenu_todo
+# super+t
+#     $HOME/.local/scripts/dmenu_todo
 
 # start a terminal
 super+shift+Return
-    alacritty
+    dir=$(cat $HOME/.local/last_dir_entered); [ -d $dir ] && alacritty --working-directory $dir || alacritty --working-directory $HOME
 
 # run programs
 super+d
-    dmenu_run -z $((1920/4)) -x $((1920/2)) -y $((1080/2)) 
+#     dmenu_run -z $((1920/4)) -x $((1920/2)) -y $((1080/2)) 
+    rofi -show drun
 
 # Toggle laptop keyboard with F10 special key (not the function number)
-XF86Tools
-    $HOME/.local/scripts/keyboard-toggle
+# XF86Tools
+#     $HOME/.local/scripts/keyboard-toggle
+
+super+shift+e
+    pkill Xorg

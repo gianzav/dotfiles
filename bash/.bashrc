@@ -19,6 +19,8 @@ set -o vi
 # export JAR="$HOME/repos/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
 # export GRADLE_HOME=$HOME/.gradle
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+# this is because otherwise ghidra breaks somehow. See https://wiki.archlinux.org/title/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closing
+export _JAVA_AWT_WM_NONREPARENTING=1
 # export JDTLS_CONFIG="$HOME/repos/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux"
 # export WORKSPACE=$HOME/dev/workspace
 
@@ -47,9 +49,11 @@ export PATH="$PATH:$HOME/.local/bin:/usr/bin/node:/usr/bin/npm:$HOME/.local/scri
 
 # Default web browser
 export BROWSER='firefox'
- 
+
 # Default terminal
 export TERMINAL='alacritty'
+
+export MENU='rofi -dmenu'
 
 # Wallpapers dir
 export WALLPAPERS="/home/gianluca/media/pics/wallpapers/"
@@ -83,6 +87,8 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clang++='clang++ -std=c++11'
 alias bt="bluetoothctl power on && bluetoothctl devices | dmenu | cut -d' ' -f2 | xargs bluetoothctl connect"
 alias e="nvim"
+alias activate="source ~/.local/share/ctfvenv/bin/activate"
+alias reload-hotkeys="pkill -sSIGUSR1 sxhkd"
 
 # trash can config
 function trashp() {
@@ -114,8 +120,9 @@ fi
 
 # shows the current branch in prompt if in a git repo
 function cd() {
-    builtin cd $1
+    [ $# -gt 0 ] && builtin cd "$1" || builtin cd ~
     export PS1="┌──[$green\w$nocolor]$red`gitbranch`$nocolor\n└─> "
+    pwd > $HOME/.local/last_dir_entered
 }
 
 function cf() {
@@ -166,5 +173,7 @@ function screenrec() {
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 alias luamake=/home/gianluca/repos/lua-language-server/3rd/luamake/luamake
+
+#[ -f "/home/gianluca/.ghcup/env" ] && source "/home/gianluca/.ghcup/env" # ghcup-env
 
 [ -f "/home/gianluca/.ghcup/env" ] && source "/home/gianluca/.ghcup/env" # ghcup-env

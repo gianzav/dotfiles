@@ -22,19 +22,22 @@ export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 alias uni="cd /home/gianluca/Documents/Uni/classnotes/"
 
 # Start Xserver on startup looking in the XDG compliant directories
-if [[ $(tty) = "/dev/tty1" ]]; then
+ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ] ; then
 
     [[ -x /usr/bin/gnome-session || -x /usr/local/bin/gnome-session ]] && has_gnome=0 || has_gnome=1
     [[ -x /usr/local/bin/dwm || -x /usr/bin/dwm ]] && has_dwm=0 || has_dwm=1
     [[ -x /usr/bin/xfce4-session || -x /usr/local/bin/xfce4-session ]] && has_xfce=0 || has_xfce=1
     [[ -x /usr/bin/awesome || -x /usr/local/bin/awesome ]] && has_awesome=0 || has_awesome=1
+    [[ -x $(which xmonad) ]] && has_xmonad=0 || has_xmonad=1
 
     echo "Choose an option:"
     [[ $has_gnome -eq 0 ]] && echo "1) gnome"
     [[ $has_dwm -eq 0 ]] && echo "2) dwm"
     [[ $has_xfce -eq 0 ]] && echo "3) xfce4"
     [[ $has_kde -eq 0 ]] && echo "4) kde"
-    [[ $has_awesome -eq 0 ]] && echo "5) awesome"
+    [[ $has_kde -eq 0 ]] && echo "5) kde-nvidia"
+    [[ $has_awesome -eq 0 ]] && echo "6) awesome"
+    [[ $has_xmonad -eq 0 ]] && echo "7) xmonad"
 
     read choice
     if [[ $choice -eq 1 ]]; then
@@ -46,7 +49,11 @@ if [[ $(tty) = "/dev/tty1" ]]; then
     elif [[ $choice -eq 4 ]]; then
         choice="plasma"
     elif [[ $choice -eq 5 ]]; then
+        choice="plasma-nvidia"
+    elif [[ $choice -eq 6 ]]; then
         choice="awesome"
+    elif [[ $choice -eq 7 ]]; then
+        choice="xmonad"
     else
         choice="dwm"
     fi

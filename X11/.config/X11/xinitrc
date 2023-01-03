@@ -39,28 +39,44 @@ fi
 session="${1}"
 
 
-# echo "session variable: $session" >> ~/xinit.log
+echo "session variable: $session" >> ~/xinit.log
 
 # Laptop options
-# setxkbmap -option caps:escape_shifted_capslock
-# brightnessctl -q set 50%
+if [ "$session" != "plasma" ]
+then
+    setxkbmap -option caps:escape_shifted_capslock
+    brightnessctl -q set 50%
+    xinput set-prop 'ELAN1205:00 04F3:30E9 Touchpad' 'libinput Tapping Enabled' 1
+    xsetroot -cursor_name left_ptr
 
-# xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-sudo alsactl restore
-sxhkd &
-redshift -l '45.72:13.48' &
+    gnome-keyring-daemon --start --daemonize
+    udiskie &
+    nmgui &
+    dunst &
+    sxhkd &
+    touchegg --daemon &
+    touchegg &
+    pipewire &
+    pipewire-pulse &
+    wireplumber &
+    redshift -l '45.72:13.48' &
+fi
 
 case "$session" in
     "dwm") $HOME/.local/scripts/bar &
-	       picom --config $HOME/.config/picom/picom.conf &
-	       feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/templepixelart.png
-	       exec dwm ;;
+	  picom --config $HOME/.config/picom/picom.conf &
+	  feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/crystal_cave.png
+	  exec dwm ;;
     "gnome") exec gnome-session ;;
     "xfce") exec xfce4-session ;;
     "plasma") export DESKTOP_SESSION=plasma
               exec startplasma-x11 ;;
+    "plasma-nvidia") export DESKTOP_SESSION=plasma
+                    exec startplasma-x11 ;;
     "awesome") picom --config $HOME/.config/picom/picom.conf &
-	           feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/templepixelart.png
+	      feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/crystal_cave.png
                exec awesome ;;
+    "xmonad") picom --config $HOME/.config/picom/picom.conf &
+              feh --no-fehbg --bg-fill /home/gianluca/media/pics/wallpapers/crystal_cave.png
+              exec xmonad ;;
 esac
